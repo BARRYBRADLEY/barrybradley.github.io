@@ -3,26 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display JSON Data</title>
+    <title>Super Cool Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Users List</h1>
-    <div id="users"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h1>Welcome to Super Cool Website</h1>
+            <p>Your one-stop solution for all things web.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </header>
 
-    <script>
-        // Функция для загрузки JSON-файла
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                let usersDiv = document.getElementById('users');
-                let html = '<ul>';
-                data.forEach(user => {
-                    html += `<li>${user.name}, ${user.age} years old, lives in ${user.city}</li>`;
-                });
-                html += '</ul>';
-                usersDiv.innerHTML = html;
-            })
-            .catch(error => console.error('Error loading JSON:', error));
-    </script>
+    <section id="about" class="fade-in">
+        <h2>About Us</h2>
+        <p>We are a team of passionate developers and designers dedicated to creating stunning websites and applications.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-card slide-up">
+                <h3>Web Development</h3>
+                <p>High-quality web development services tailored to your needs.</p>
+            </div>
+            <div class="service-card slide-up">
+                <h3>UI/UX Design</h3>
+                <p>Beautiful and intuitive designs that engage users.</p>
+            </div>
+            <div class="service-card slide-up">
+                <h3>SEO Optimization</h3>
+                <p>Optimize your site to rank higher on search engines.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <p>Email us at: info@supercoolwebsite.com</p>
+        <p>Follow us on social media:</p>
+        <ul class="social-icons">
+            <li><a href="#"><img src="icons/facebook.svg" alt="Facebook"></a></li>
+            <li><a href="#"><img src="icons/twitter.svg" alt="Twitter"></a></li>
+            <li><a href="#"><img src="icons/instagram.svg" alt="Instagram"></a></li>
+        </ul>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
