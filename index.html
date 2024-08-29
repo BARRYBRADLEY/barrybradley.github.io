@@ -1,1 +1,28 @@
-ggg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display JSON Data</title>
+</head>
+<body>
+    <h1>Users List</h1>
+    <div id="users"></div>
+
+    <script>
+        // Функция для загрузки JSON-файла
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                let usersDiv = document.getElementById('users');
+                let html = '<ul>';
+                data.forEach(user => {
+                    html += `<li>${user.name}, ${user.age} years old, lives in ${user.city}</li>`;
+                });
+                html += '</ul>';
+                usersDiv.innerHTML = html;
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>
+</body>
+</html>
